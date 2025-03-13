@@ -76,7 +76,7 @@ const PassportCanvas: React.FC<PassportData> = React.memo(
       const canvas = canvasRef.current;
       if (!canvas) return;
       const link = document.createElement("a");
-      link.download = "result-image.png";
+      link.download = `${nickname}-passport.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
     };

@@ -34,6 +34,25 @@ function App() {
   const handleNicknameChange = (event) => {
     setNickname(event.target.value);
   };
+  const handleSetToday = () => {
+    const today = new Date();
+    const formattedDate = formatDate(today);
+    setIssueDay(formattedDate);
+    console.log(issueDay)
+  };
+
+  const formatDate = (date) => {
+    let dd = date.getDate();
+    if (dd < 10) dd = "0" + dd;
+
+    let mm = date.getMonth() + 1; // Месяцы в JavaScript начинаются с 0
+    if (mm < 10) mm = "0" + mm;
+
+    const yyyy = date.getFullYear();
+
+    return `${dd}.${mm}.${yyyy}`;
+  };
+
   const handlePassportCodeChange = (event) => {
     setPassportCode(event.target.value);
   };
@@ -72,14 +91,18 @@ function App() {
         />
 
         <label className="fieldset-label font-joystix">Когда выдан</label>
-        <input
-          value={issueDay}
-          type="text"
-          className="input font-determination"
-          placeholder="12.03.2025"
-          onChange={handleIssueDayChange}
-        />
-
+        <div className="join">
+          <input
+            value={issueDay}
+            type="text"
+            className="input font-determination"
+            placeholder="12.03.2025"
+            onChange={handleIssueDayChange}
+          />
+          <button className="btn btn-neutral" onClick={handleSetToday}>
+            Сегодня
+          </button>
+        </div>
         <label className="fieldset-label font-joystix">Звание</label>
         <div className="join">
           <input
