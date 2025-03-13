@@ -52,7 +52,6 @@ const PassportCanvas: React.FC<PassportData> = React.memo(
         ctx.fillText(`${rankMassive[0]}`, 140, 565);
         ctx.fillText(`${rankMassive[1] ? rankMassive[1] : ""}`, 45, 600);
         ctx.fillText(`${rankMassive[2] ? rankMassive[2] : ""}`, 45, 638);
-        console.log(rankMassive);
       }
       if (nickname && !passportImage) {
         ctx.fillStyle = "#ede0d8";
@@ -67,9 +66,7 @@ const PassportCanvas: React.FC<PassportData> = React.memo(
     };
     useEffect(() => {
       mainImg.onload = () => {
-        console.log("mainImg loaded");
         overlayImg.onload = () => {
-          console.log("overlayImg loaded");
           drawImages();
         };
       };

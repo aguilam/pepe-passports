@@ -42,9 +42,7 @@ function App() {
       setPassportImage(URL.createObjectURL(event.target.files[0]));
     }
   };
-  const handleFormSubmit = () => {
-    console.log(true);
-  };
+  const handleFormSubmit = () => {};
   return (
     <div className=" grid grid-cols-2 ">
       <fieldset
